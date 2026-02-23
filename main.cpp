@@ -10,6 +10,11 @@ using namespace std;
 // Compare adjacent pairs, swap if left > right
 void bubble(vector<int>& numbers, int N)
 {
+    for(int i = 0; i < N - 1; i++) { //one for(int...) is one pass
+        if (numbers[i] > numbers[i+1]) {
+            swap(numbers[i], numbers[i+1]);
+        }
+    }
     // TODO: Implement one pass over elements [0..N-1], swapping adjacent pairs if out of order
 }
 
@@ -115,3 +120,4 @@ int main()
     return 0;
 }
 #endif
+
