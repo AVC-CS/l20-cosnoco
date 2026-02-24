@@ -8,6 +8,7 @@ using namespace std;
 
 // Bubble: one pass through first N elements
 // Compare adjacent pairs, swap if left > right
+ // TODO: Implement one pass over elements [0..N-1], swapping adjacent pairs if out of order
 void bubble(vector<int>& numbers, int N)
 {
     for(int i = 0; i < N - 1; i++) { //one for(int...) is one pass
@@ -15,14 +16,13 @@ void bubble(vector<int>& numbers, int N)
             swap(numbers[i], numbers[i+1]);
         }
     }
-    // TODO: Implement one pass over elements [0..N-1], swapping adjacent pairs if out of order
 }
 
 // Selection: find index of minimum from index start to end of array
 // Returns the index of the minimum value
+    // TODO: Find and return the index of the minimum element in [start..N-1]
 int selection(vector<int>& numbers, int start, int N)
 {
-    // TODO: Find and return the index of the minimum element in [start..N-1]
 
     int minIdx = start;
 
@@ -36,9 +36,17 @@ int selection(vector<int>& numbers, int start, int N)
 
 // Insertion: insert element at index idx into sorted portion [0..idx-1]
 // Shift larger elements right to make room
+  // TODO: Insert numbers[idx] into its correct position in [0..idx-1]
 void insertion(vector<int>& numbers, int idx)
 {
-    // TODO: Insert numbers[idx] into its correct position in [0..idx-1]
+    int key = numbers[idx]; //key = 10
+    int j = idx - 1;
+    while (j >= 0 && numbers[j] > key) 
+    {
+        numbers[j + 1] = numbers[j]; // this will move the larger element to the right
+        j--;
+    }
+    numbers[j + 1] = key; // key will be placed in its correct position
 }
 
 // ============================================================
@@ -128,4 +136,6 @@ int main()
     return 0;
 }
 #endif
+
+
 
