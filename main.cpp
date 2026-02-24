@@ -22,17 +22,15 @@ void bubble(vector<int>& numbers, int N)
 // Returns the index of the minimum value
 int selection(vector<int>& numbers, int start, int N)
 {
-    int startIdx = 0;
-    int minIdx = startIdx;
+    // TODO: Find and return the index of the minimum element in [start..N-1]
 
-    for (int j= start+1; j < numbers.size(); j++) 
+    int minIdx = start;
+
+    for (int j= start+1; j < N; j++) 
     {
         if (numbers[j] < numbers[minIdx]) 
             minIdx = j;
     }
-    swap(numbers[startIdx], numbers[minIdx]);
-
-    // TODO: Find and return the index of the minimum element in [start..N-1]
     return minIdx;
 }
 
